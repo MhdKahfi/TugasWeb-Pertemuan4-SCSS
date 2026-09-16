@@ -1,0 +1,31 @@
+// =========================================================
+// LAYOUT / SECTIONS
+// Gaya bersama tiap "halaman paspor" (section) di <main>.
+// =========================================================
+@use '../abstracts' as *;
+
+main section {
+  padding: 76px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+section {
+  .section-eyebrow {
+    @include mono-label(0.78rem, var(--stamp), 0.1em);
+    margin: 0 0 10px;
+  }
+
+  .lede-p {
+    color: var(--muted);
+    max-width: 62ch;
+    font-size: 1.02rem;
+  }
+}
+
+.section-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  margin: 0 0 38px;
+  color: var(--ink);
+}

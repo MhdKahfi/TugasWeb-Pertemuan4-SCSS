@@ -1,0 +1,63 @@
+// =========================================================
+// LAYOUT / HEADER
+// =========================================================
+@use '../abstracts' as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(14, 33, 27, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(199, 154, 70, 0.25);
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+
+    @include respond('sm') {
+      display: none;
+    }
+  }
+
+  nav a {
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--paper-2);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+    opacity: 0.85;
+
+    &:hover {
+      color: var(--gold);
+      opacity: 1;
+    }
+  }
+}
+
+.nav-wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--paper);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+
+  span {
+    color: var(--gold);
+  }
+}

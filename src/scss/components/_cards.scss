@@ -1,0 +1,133 @@
+// =========================================================
+// COMPONENTS / CARDS
+// fact-grid (Latar Belakang), stamp-grid (Kepribadian),
+// hobby-grid (Minat & Hobi). Ketiganya berbagi pola grid
+// 3 -> 2 -> 1 kolom lewat placeholder %grid-cols-N yang
+// dibangkitkan dengan @for di abstracts/_placeholders.scss,
+// dan berbagi gap/margin-top dari $spacing map.
+// =========================================================
+@use 'sass:map';
+@use '../abstracts' as *;
+
+// ---- Latar Belakang ------------------------------------------
+.fact-grid {
+  display: grid;
+  @extend %grid-cols-3;
+  gap: map.get($spacing, 'md');
+  margin-top: map.get($spacing, 'xl');
+
+  @include respond('md') {
+    @include grid-cols(2);
+  }
+
+  @include respond('sm') {
+    @include grid-cols(1);
+  }
+}
+
+.fact-card {
+  @include card-surface(20px 22px);
+
+  dt {
+    @include mono-label(0.66rem, var(--muted), 0.08em);
+    margin: 0;
+  }
+
+  dd {
+    margin: 8px 0 0;
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+}
+
+// ---- Kepribadian ------------------------------------------------
+.stamp-grid {
+  display: grid;
+  @extend %grid-cols-3;
+  gap: map.get($spacing, 'lg');
+  margin-top: map.get($spacing, 'xl');
+
+  @include respond('md') {
+    @include grid-cols(2);
+  }
+
+  @include respond('sm') {
+    @include grid-cols(1);
+  }
+}
+
+.stamp-card {
+  @include card-surface(30px 24px 26px);
+  text-align: center;
+
+  p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin: 0;
+  }
+}
+
+.stamp-badge {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: 2px dashed var(--stamp);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-7deg);
+  margin: 0 auto 18px;
+  mix-blend-mode: multiply;
+
+  span {
+    @include mono-label(0.6rem, var(--stamp), 0.02em);
+    text-align: center;
+    line-height: 1.25;
+  }
+}
+
+// ---- Minat & Hobi --------------------------------------------------
+.hobby-grid {
+  display: grid;
+  @extend %grid-cols-3;
+  gap: map.get($spacing, 'md');
+  margin-top: map.get($spacing, 'xl');
+
+  @include respond('md') {
+    @include grid-cols(2);
+  }
+
+  @include respond('sm') {
+    @include grid-cols(1);
+  }
+}
+
+.hobby-card {
+  @include card-surface(20px 22px);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1rem;
+    margin: 0 0 6px;
+  }
+
+  p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+}
+
+.hobby-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 7px;
+  flex-shrink: 0;
+}

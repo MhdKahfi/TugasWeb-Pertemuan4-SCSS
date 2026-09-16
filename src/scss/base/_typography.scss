@@ -1,0 +1,22 @@
+// =========================================================
+// BASE / TYPOGRAPHY
+// Reset dasar heading & body text; detail ukuran tiap heading
+// tetap diatur di komponen/layout masing-masing (section-title,
+// hero h1, dst.) supaya tidak konflik dengan desain paspor.
+// =========================================================
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--display);
+}
+
+p {
+  margin: 0 0 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,5 @@
+// Forward semua partial di folder "abstracts" lewat satu pintu.
+// File lain cukup: @use '../abstracts' as *;
+@forward 'variables';
+@forward 'mixins';
+@forward 'placeholders';

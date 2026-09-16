@@ -1,0 +1,53 @@
+// =========================================================
+// LAYOUT / HERO (sampul paspor)
+// =========================================================
+@use '../abstracts' as *;
+
+.hero {
+  background: linear-gradient(160deg, var(--cover) 0%, var(--cover-deep) 100%);
+  padding: 72px 0 90px;
+
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+
+    @include respond('md') {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.hero-text {
+  color: var(--paper);
+  animation: fadeUp 0.7s ease both;
+}
+
+.eyebrow {
+  @include mono-label(0.78rem, var(--gold-soft), 0.1em);
+  margin: 0 0 16px;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  color: var(--paper);
+}
+
+.hero .lede {
+  color: var(--paper-2);
+  font-size: 1.05rem;
+  max-width: 44ch;
+  margin: 0 0 30px;
+  opacity: 0.9;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}

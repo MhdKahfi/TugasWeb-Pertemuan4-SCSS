@@ -1,0 +1,108 @@
+// =========================================================
+// COMPONENTS / TICKET (Tujuan Berikutnya)
+// =========================================================
+@use '../abstracts' as *;
+
+.ticket {
+  display: flex;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: $radius-md;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include respond('sm') {
+    flex-direction: column;
+  }
+
+  &__stub {
+    width: 150px;
+    flex-shrink: 0;
+    background: var(--cover);
+    color: var(--paper);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    text-align: center;
+    padding: 20px 14px;
+    gap: 6px;
+
+    @include respond('sm') {
+      width: 100%;
+      flex-direction: row;
+      padding: 12px 20px;
+    }
+
+    .stub-label {
+      @include mono-label(0.68rem, var(--gold-soft), 0.08em);
+    }
+
+    time {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--paper);
+    }
+  }
+
+  &__main {
+    flex: 1;
+    padding: 22px 28px;
+    border-left: 2px dashed var(--line);
+    position: relative;
+
+    @include respond('sm') {
+      border-left: none;
+      border-top: 2px dashed var(--line);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: -11px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--paper);
+
+      @include respond('sm') {
+        left: 50%;
+        top: -10px;
+        transform: translateX(-50%);
+      }
+    }
+
+    &::before {
+      top: -10px;
+    }
+
+    &::after {
+      bottom: -10px;
+
+      @include respond('sm') {
+        bottom: auto;
+        top: auto;
+      }
+    }
+
+    h3 {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      margin: 0 0 6px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0;
+    }
+  }
+}

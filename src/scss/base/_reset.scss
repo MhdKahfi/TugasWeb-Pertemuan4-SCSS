@@ -1,0 +1,93 @@
+// =========================================================
+// BASE / RESET
+// =========================================================
+@use 'sass:map';
+@use '../abstracts' as *;
+
+:root {
+  // @each loop: bangkitkan var(--nama-warna) dari peta $colors
+  // supaya satu sumber kebenaran untuk warna (SCSS map -> CSS var).
+  @each $name, $value in $colors {
+    --#{$name}: #{$value};
+  }
+
+  --radius: #{$radius-lg};
+  --display: #{$font-display};
+  --body: #{$font-body};
+  --mono: #{$font-mono};
+  --maxw: #{$maxw};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+// ---- Utilitas layout dasar ---------------------------------
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 map.get($spacing, 'lg');
+}
+
+.fillme {
+  border-bottom: 1px dashed var(--gold);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--gold);
+  color: var(--cover-deep);
+  padding: 10px 16px;
+  border-radius: $radius-sm;
+  font-family: var(--mono);
+  font-size: 14px;
+  z-index: 100;
+
+  &:focus {
+    left: 16px;
+    top: 16px;
+  }
+}

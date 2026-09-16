@@ -1,0 +1,59 @@
+// =========================================================
+// ABSTRACTS / VARIABLES
+// Semua nilai mentah (raw values) hidup di sini sebagai peta
+// (Sass map) supaya bisa di-loop dengan @each / @for.
+// =========================================================
+
+// ---- Warna -------------------------------------------------
+// Dipakai oleh @each di base/_reset.scss untuk membuat
+// CSS Custom Properties (var(--warna)) di :root.
+$colors: (
+  'cover': #16302A,
+  'cover-deep': #0E211B,
+  'paper': #F1EAD9,
+  'paper-2': #E7DDC3,
+  'line': #D2C6A6,
+  'ink': #202A22,
+  'muted': #6E7568,
+  'gold': #C79A46,
+  'gold-soft': #D8B876,
+  'stamp': #B5432E,
+);
+
+// ---- Spacing scale ------------------------------------------
+// Nilai-nilai yang benar-benar berulang identik di CSS asli
+// (gap grid, margin-top grid, padding section) dikumpulkan di
+// sini supaya konsisten dan gampang diubah dari satu tempat.
+$spacing: (
+  'xs': 6px,
+  'sm': 10px,
+  'md': 18px,
+  'lg': 24px,
+  'xl': 36px,
+  '2xl': 56px,
+  '3xl': 76px,
+);
+
+// ---- Radius ---------------------------------------------------
+$radius-lg: 12px;
+$radius-md: 10px;
+$radius-sm: 8px;
+$radius-xs: 6px;
+
+// ---- Tipografi --------------------------------------------------
+$font-display: 'Fraunces', serif;
+$font-body: 'Inter', sans-serif;
+$font-mono: 'Space Mono', monospace;
+
+// ---- Layout ------------------------------------------------------
+$maxw: 1120px;
+
+// ---- Breakpoints (dipakai oleh mixin respond()) -------------------
+$breakpoints: (
+  'md': 900px,
+  'sm': 620px,
+);
+
+// ---- Jumlah kolom grid kartu (Latar Belakang / Kepribadian / Minat)
+// Dipakai oleh @for loop di _placeholders.scss.
+$grid-max-cols: 3;

@@ -1,0 +1,32 @@
+// =========================================================
+// COMPONENTS / BUTTONS
+// =========================================================
+@use '../abstracts' as *;
+
+.btn-primary,
+.btn-ghost {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: $radius-sm;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  @include lift-on-hover;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--cover-deep);
+  font-weight: 700;
+}
+
+.btn-ghost {
+  border: 1px solid rgba(241, 234, 217, 0.4);
+  color: var(--paper);
+
+  &:hover {
+    border-color: var(--gold);
+    color: var(--gold-soft);
+  }
+}

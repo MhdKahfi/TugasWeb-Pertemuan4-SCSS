@@ -1,0 +1,14 @@
+// =========================================================
+// ABSTRACTS / PLACEHOLDERS
+// Placeholder selector %grid-cols-N dibangkitkan otomatis
+// dengan @for, lalu di-@extend oleh fact-grid / stamp-grid /
+// hobby-grid (desktop = 3 kolom, tablet = 2, mobile = 1),
+// persis pola grid-template-columns pada CSS aslinya.
+// =========================================================
+@use 'variables' as v;
+
+@for $i from 1 through v.$grid-max-cols {
+  %grid-cols-#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr);
+  }
+}

@@ -1,0 +1,147 @@
+// =========================================================
+// COMPONENTS / FORMS (Kontak)
+// =========================================================
+@use '../abstracts' as *;
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 48px;
+
+  @include respond('md') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-intro {
+  p {
+    color: var(--muted);
+    max-width: 38ch;
+  }
+
+  address {
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink);
+    margin-top: 20px;
+    line-height: 2;
+
+    a {
+      text-decoration: underline;
+      text-decoration-color: var(--line);
+    }
+  }
+}
+
+.form-card {
+  @include card-surface(32px, $radius-lg);
+
+  &__eyebrow {
+    @include mono-label(0.68rem, var(--stamp), 0.1em);
+    margin: 0 0 20px;
+  }
+}
+
+form {
+  display: grid;
+  gap: 20px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @include respond('sm') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+
+  label {
+    @include mono-label(0.76rem, var(--muted), 0.02em, false);
+  }
+
+  input,
+  select,
+  textarea {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: $radius-sm;
+    padding: 12px 14px;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 0.95rem;
+
+    &:focus {
+      border-color: var(--stamp);
+      outline: none;
+    }
+  }
+
+  // Sesuai CSS asli: highlight :invalid cuma untuk input & textarea,
+  // <select> sengaja tidak diikutkan.
+  input:invalid[data-touched='true'],
+  textarea:invalid[data-touched='true'] {
+    border-color: var(--stamp);
+  }
+
+  input[type='color'] {
+    padding: 4px;
+    height: 44px;
+    cursor: pointer;
+  }
+
+  input[type='range'] {
+    padding: 0;
+    accent-color: var(--stamp);
+  }
+
+  .error-msg {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--stamp);
+    min-height: 14px;
+    display: block;
+  }
+}
+
+.range-value {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--stamp);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+button[type='submit'] {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.86rem;
+  background: var(--stamp);
+  color: var(--paper);
+  border: none;
+  border-radius: $radius-sm;
+  padding: 14px 26px;
+  cursor: pointer;
+  @include lift-on-hover;
+}
+
+.form-status {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--stamp);
+}

@@ -1,0 +1,12 @@
+// =========================================================
+// MAIN.SCSS — titik masuk tunggal ("1" pada pola 7-1)
+// Urutan @use sengaja mengikuti urutan cascade:
+// abstracts (tanpa output CSS) -> vendors -> base -> layout
+// -> components -> pages.
+// =========================================================
+@use 'abstracts' as *;
+@use 'vendors';
+@use 'base';
+@use 'layout';
+@use 'components';
+@use 'pages';

@@ -1,0 +1,73 @@
+// =========================================================
+// ABSTRACTS / MIXINS
+// =========================================================
+@use 'sass:map';
+@use 'variables' as v;
+
+// ---------------------------------------------------------
+// 1) respond($breakpoint)
+// Media query mixin berbasis peta $breakpoints, dipakai di
+// hampir semua partial (header, hero, id-card, cards, forms, ticket).
+// ---------------------------------------------------------
+@mixin respond($breakpoint) {
+  @if not map.has-key(v.$breakpoints, $breakpoint) {
+    @warn "Breakpoint `#{$breakpoint}` tidak ditemukan di $breakpoints.";
+  } @else {
+    @media (max-width: map.get(v.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// ---------------------------------------------------------
+// 2) mono-label($size, $color, $tracking, $uppercase)
+// Gaya teks "mono" berulang (eyebrow, label field, stub tiket,
+// figcaption, dsb.) supaya tidak duplikasi font-family/letter-spacing.
+// ---------------------------------------------------------
+@mixin mono-label($size: 0.78rem, $color: var(--muted), $tracking: 0.08em, $uppercase: true) {
+  font-family: v.$font-mono;
+  font-size: $size;
+  letter-spacing: $tracking;
+  color: $color;
+
+  @if $uppercase {
+    text-transform: uppercase;
+  }
+}
+
+// ---------------------------------------------------------
+// 3) card-surface($padding, $radius)
+// Permukaan kartu berulang (fact-card, stamp-card, hobby-card,
+// form-card): background, border, dan radius sama persis;
+// hanya padding yang beda per komponen, jadi tetap parameter bebas
+// (bukan dipaksa ke $spacing) supaya nilai piksel asli terjaga.
+// ---------------------------------------------------------
+@mixin card-surface($padding: 20px 22px, $radius: v.$radius-md) {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: $radius;
+  padding: $padding;
+}
+
+// ---------------------------------------------------------
+// grid-cols($n)
+// Rekan pasangan %grid-cols-N (lihat _placeholders.scss, hasil
+// @for). %placeholder dipakai lewat @extend di luar media query
+// (Sass melarang @extend menembus batas @media); mixin ini dipakai
+// lewat @include DI DALAM media query untuk kolom 2 & 1.
+// ---------------------------------------------------------
+@mixin grid-cols($n) {
+  grid-template-columns: repeat($n, 1fr);
+}
+
+// ---------------------------------------------------------
+// 4) lift-on-hover($distance)
+// Efek transform naik saat hover (tombol, kartu id, dsb.).
+// ---------------------------------------------------------
+@mixin lift-on-hover($distance: -2px, $duration: 0.18s) {
+  transition: transform $duration ease;
+
+  &:hover {
+    transform: translateY($distance);
+  }
+}

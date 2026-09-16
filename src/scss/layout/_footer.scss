@@ -1,0 +1,47 @@
+// =========================================================
+// LAYOUT / FOOTER
+// =========================================================
+@use '../abstracts' as *;
+
+footer {
+  background: var(--cover-deep);
+  padding: 32px 0;
+
+  p {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--paper-2);
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    text-decoration: none;
+    color: var(--gold-soft);
+
+    &:hover {
+      color: var(--gold);
+    }
+  }
+}
+
+.footer-wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
